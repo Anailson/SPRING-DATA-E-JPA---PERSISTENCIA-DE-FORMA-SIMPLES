@@ -1,11 +1,14 @@
 package br.com.projetospringdata.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UsuarioSpringData implements Serializable{
@@ -25,6 +28,19 @@ public class UsuarioSpringData implements Serializable{
 	private String email;
 	
 	private int idade;
+	
+	//USUARIO MUITOS TELEFONE
+	//1 para muitos telefones
+	@OneToMany(mappedBy = "usuarioSpringData", orphanRemoval =  true, fetch = FetchType.EAGER)
+	private List<Telefone> telefones;
+	
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
+	
+	public List<Telefone> getTelefones() {
+		return telefones;
+	}
 
 	public Long getId() {
 		return id;

@@ -3,6 +3,7 @@
 	<persistence-unit name="projetospringdata">
 	
 	<class>br.com.projetospringdata.model.UsuarioSpringData</class>
+	<class>br.com.projetospringdata.model.Telefone</class>
 	
 	</persistence-unit>
 </persistence>
